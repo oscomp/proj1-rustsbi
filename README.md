@@ -13,6 +13,9 @@
 - github https://github.com/luojia65
 - email me@luojia.cc
 
+### 难度
+中等
+
 ### 特征
 - 适应 RISC-V SBI 规范 v0.2
 - 对 unix类型的操作系统有很好支持
