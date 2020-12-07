@@ -3,7 +3,7 @@
 ## 介绍
 用Rust语言实现的RISC-V Supervisor Binary Interface。该项目最初是 rCore 代码夏季 2020 活动的一部分，现在它能够在支持的 RISC-V 设备上运行 rCore 教程和其他操作系统内核。
 
-当前实现：https://github.com/luojia65/rustsbi
+当前项目实现源码等：https://github.com/luojia65/rustsbi
 
 ### 所属赛道
 “OS功能设计”
