@@ -9,7 +9,9 @@
 “OS功能设计”
 
 ### 项目导师
-蒋周奇  https://github.com/luojia65
+蒋周奇 
+- github https://github.com/luojia65
+- email me@luojia.cc
 
 ### 特征
 - 适应 RISC-V SBI 规范 v0.2
