@@ -1,7 +1,9 @@
 # proj1-rustsbi
 
-## 介绍
-用Rust语言实现的RISC-V Supervisor Binary Interface。该项目最初是 rCore 代码夏季 2020 活动的一部分，现在它能够在支持的 RISC-V 设备上运行 rCore 教程和其他操作系统内核。
+### 项目描述
+SBI（Supervisor Binary Interface）的实现是一种在M模式下运行的特定于平台的固件，以S模式或H模式执行的引导加载程序，管理程序或通用OS。
+RustSBI用Rust语言实现的RISC-V Supervisor Binary Interface。该项目最初是 rCore 代码夏季 2020 活动的一部分，现在它能够在支持的 RISC-V 设备上运行 rCore 教程和其他操作系统内核。
+RustSBI项目的目标是为在M模式下执行的平台特定固件提供RISC-V SBI规范的安全&高性能的开源参考实现。 RISC-V平台和片上系统供应商可以轻松扩展RustSBI实现，以适应特定的硬件配置。
 
 当前项目实现源码等：https://github.com/luojia65/rustsbi
 
