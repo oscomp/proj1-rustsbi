@@ -40,7 +40,7 @@ RustSBI项目的目标是为在M模式下执行的平台特定固件提供RISC-V
 - MIT license (LICENSE-MIT or http://opensource.org/licenses/MIT)
 - 木兰 PSL v2 (LICENSE-MULAN or https://opensource.org/licenses/MulanPSL-2.0)
 
-## 项目目标
+## 预期目标
 - 支持更多的RISC-V based的硬件或硬件模拟器，如SIFIVE，Terminus等
 - 支持对S-Mode下的OS Kernel的在线调试功能，方便调试OS Kernel
 - 支持加载OS Kernel到开发板的RAM中，实现快速运行
