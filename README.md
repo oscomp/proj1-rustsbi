@@ -30,4 +30,4 @@
 ## 项目目标
 - 支持更多的RISC-V based的硬件或硬件模拟器，如SIFIVE，Terminus等
 - 支持对S-Mode下的OS Kernel的在线调试功能，方便调试OS Kernel
-- 支持加载OS Kernel到开发板的RAM中，实现快速运行，
+- 支持加载OS Kernel到开发板的RAM中，实现快速运行
