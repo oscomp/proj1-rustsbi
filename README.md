@@ -8,6 +8,9 @@
 ### 所属赛道
 “OS功能设计”
 
+### 项目导师
+蒋周奇  https://github.com/luojia65
+
 ### 特征
 - 适应 RISC-V SBI 规范 v0.2
 - 对 unix类型的操作系统有很好支持
