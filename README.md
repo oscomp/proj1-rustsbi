@@ -57,18 +57,18 @@ RustSBI也可以作为一个库使用，使RISC-V处理器核和片上系统供�
 
 ### 第一题：RustSBI支持
 
-- 挑选RISC-V硬件或模拟器，编写支持embedded-hal的HAL库；您可能需要先获得它的SVD文件，进而使用svd2rust生成对应的PAC库，基于PAC编写HAL库
-- 选择可用的运行时。您可以从开源实现（如riscv-rt）中挑选，也可以自己编写简单的运行时
-- 基于RustSBI、HAL库和运行时，编写代码，使RustSBI支持更多基于的RISC-V的硬件或硬件模拟器
+- 挑选RISC-V硬件或模拟器，编写支持embedded-hal的HAL库；您可能需要先获得它的SVD文件，进而使用svd2rust生成对应的PAC库，基于PAC编写HAL库；
+- 选择可用的Rust语言运行时。您可以从开源实现（如riscv-rt）中选择，也可以自己编写简单的运行时；
+- 基于RustSBI、HAL库和运行时，编写代码，使RustSBI支持挑选的RISC-V硬件或硬件模拟器。
 
 ### 第二题：RTIC运行时
 
-- RTIC是一个中断驱动的并发运行时，阅读RTIC的文档（[这里](http://rtic.rs/)），了解RTIC的设计和功能
-- 挑选芯片，对它包含的中断处理器（如CLINT、PLIC等），阅读文档或逆向分析，了解此中断处理器的使用方法
-- 设计通用的库，支持中断处理器的优先级中断功能，以作为riscv库的补充。您可能需要参考cortex-m库的NVIC结构体（[这里](https://docs.rs/cortex-m/0.7.0/cortex_m/peripheral/struct.NVIC.html)）
-- RTIC目前支持Cortex-M架构；使用您的中断处理器库，尝试编写代码，使其支持RISC-V架构和所挑选芯片包含的中断处理器
+- RTIC是一个中断驱动的并发运行时，阅读RTIC的文档（[这里](http://rtic.rs/)），了解RTIC的设计和功能；
+- 挑选芯片，对它包含的中断处理器（如CLINT、PLIC等），阅读文档或逆向分析，了解此中断处理器的使用方法；
+- 设计通用的库，支持中断处理器的优先级中断功能，以作为riscv库的补充。您可能需要参考cortex-m库的NVIC结构体（[这里](https://docs.rs/cortex-m/0.7.0/cortex_m/peripheral/struct.NVIC.html)）；
+- RTIC目前支持Cortex-M架构；使用您的中断处理器库，尝试编写代码，使RTIC支持RISC-V架构和所挑选芯片包含的中断处理器。
 
 ### 第三题：工具链
 
-- 完善或编写有关的工具链，支持对S模式下的操作系统内核的在线调试功能，方便调试操作系统内核
-- 挑选芯片对应的工具链，支持加载操作系统内核到开发板的RAM中，实现快速运行
+- 完善或编写有关的工具链，支持对S模式下的操作系统内核的在线调试功能，方便调试操作系统内核；
+- 挑选或编写芯片对应的工具链，支持加载操作系统内核到开发板的RAM中，实现快速运行。
