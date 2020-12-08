@@ -1,24 +1,30 @@
 # proj1-rustsbi
 
 ### 项目描述
+
 SBI（Supervisor Binary Interface）的实现是一种在M模式下运行的特定于平台的固件，以S模式或H模式执行的引导加载程序，管理程序或通用OS。
 RustSBI用Rust语言实现的RISC-V Supervisor Binary Interface。该项目最初是 rCore 代码夏季 2020 活动的一部分，现在它能够在支持的 RISC-V 设备上运行 rCore 教程和其他操作系统内核。
+
 RustSBI项目的目标是为在M模式下执行的平台特定固件提供RISC-V SBI规范的安全&高性能的开源参考实现。 RISC-V平台和片上系统供应商可以轻松扩展RustSBI实现，以适应特定的硬件配置。
 
 当前项目实现源码等：https://github.com/luojia65/rustsbi
 
 ### 所属赛道
+
 “OS功能设计”
 
 ### 项目导师
+
 蒋周奇 
 - github https://github.com/luojia65
 - email me@luojia.cc
 
 ### 难度
+
 中等
 
 ### 特征
+
 - 适应 RISC-V SBI 规范 v0.2
 - 对 unix类型的操作系统有很好支持
 - 用Rust实现
@@ -33,15 +39,17 @@ RustSBI项目的目标是为在M模式下执行的平台特定固件提供RISC-V
 
 
 ### 关于平台实现注意事项
-- RustSBI可以库的形式纯真。在正常情况下，RustSBI 通过embedded-hal 来实现。
-- 在 QEMU 和 K210 平台上，支持CLINT和 PLIC 外围设备。
+
+- RustSBI可以库的形式使用。通常情况下，RustSBI 通过 embedded-hal 来实现。
+- 在 QEMU 和 K210 平台上，支持 CLINT 和 PLIC 外围设备。
 
 ### License
+
 - MIT license (LICENSE-MIT or http://opensource.org/licenses/MIT)
 - 木兰 PSL v2 (LICENSE-MULAN or https://opensource.org/licenses/MulanPSL-2.0)
 
 ## 预期目标
-- 支持更多的RISC-V based的硬件或硬件模拟器，如SIFIVE，Terminus等
-- 支持对S-Mode下的OS Kernel的在线调试功能，方便调试OS Kernel
-- 支持加载OS Kernel到开发板的RAM中，实现快速运行
 
+- 支持更多的RISC-V based的硬件或硬件模拟器，如SiFive，Terminus等
+- 完善有关的工具链，支持对S-Mode下的OS Kernel的在线调试功能，方便调试OS Kernel
+- 完善有关的工具链，支持加载OS Kernel到开发板的RAM中，实现快速运行
