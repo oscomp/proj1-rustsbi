@@ -61,9 +61,9 @@ RustSBI也可以作为一个库使用，帮助更多的SBI开发者适配自己�
 
 ### 第一题：RustSBI支持
 
-- 挑选RISC-V硬件或模拟器，编写支持embedded-hal的HAL库；您可能需要先获得它的SVD文件，进而使用svd2rust生成对应的PAC库，基于PAC编写HAL库；
+- 挑选RISC-V硬件或模拟器，编写支持embedded-hal的HAL库。您可能需要先获得它的SVD文件，进而使用svd2rust生成对应的PAC库，基于PAC编写HAL库；
 - 选择可用的Rust语言运行时。您可以从开源实现（如riscv-rt）中选择，也可以自己编写简单的运行时；
-- 基于RustSBI、HAL库和运行时，编写代码，使RustSBI支持挑选的RISC-V硬件或硬件模拟器。
+- 基于RustSBI、HAL库和运行时，编写代码，使RustSBI支持挑选的RISC-V硬件或硬件模拟器。至少需要能运行rCore-Tutorial项目的操作系统内核。
 
 ### 第二题：RTIC运行时
 
