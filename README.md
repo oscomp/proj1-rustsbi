@@ -63,9 +63,9 @@ RustSBI也可以作为一个库使用，使RISC-V处理器核和片上系统供�
 
 ### 第二题：RTIC运行时
 
-- RTIC是一个中断驱动的并发运行时，阅读RTIC的文档（[这里](http://rtic.rs/)），了解RTIC的设计和功能；
-- 挑选芯片，对它包含的中断处理器（如CLINT、PLIC等），阅读文档或逆向分析，了解此中断处理器的使用方法；
-- 设计通用的库，支持中断处理器的优先级中断功能，以作为riscv库的补充。您可能需要参考cortex-m库的NVIC结构体（[这里](https://docs.rs/cortex-m/0.7.0/cortex_m/peripheral/struct.NVIC.html)）；
+- 挑选RISC-V硬件或模拟器。对它包含的中断处理器（如CLINT、PLIC等），阅读文档或逆向分析，了解此中断处理器的使用方法；
+- 对这款中断处理器，设计通用的库，支持优先级中断功能，以作为riscv库的补充。您可能需要参考cortex-m库的NVIC结构体（[这里](https://docs.rs/cortex-m/0.7.0/cortex_m/peripheral/struct.NVIC.html)）；
+- RTIC是一个中断驱动的并发运行时。阅读RTIC的文档（[这里](http://rtic.rs/)），了解RTIC的设计和功能；
 - RTIC目前支持Cortex-M架构；使用您的中断处理器库，尝试编写代码，使RTIC支持RISC-V架构和所挑选芯片包含的中断处理器。
 
 ### 第三题：工具链
