@@ -18,8 +18,19 @@ RustSBI项目发起于鹏城实验室的“rCore代码之夏-2020”活动，它
 
 RustSBI项目的目标是，制作一个从固件启动的最小Rust语言SBI实现，为可能的复杂实现提供参考和支持。
 RustSBI也可以作为一个库使用，帮助更多的SBI开发者适配自己的平台，以支持更多处理器核和片上系统。
+RustSBI已经被RISC-V SBI标准收录，作为官方推荐的实现之一，它的实现编号为4。
 
-当前项目实现源码等：https://github.com/luojia65/rustsbi
+RustSBI的主要特点如下：
+
+- 适配 RISC-V SBI 规范 v0.3
+- 对类 Unix 操作系统有很好支持
+- 完全使用 Rust 语言实现
+- 是 OpenSBI 项目的有力竞争品
+- 支持 QEMU 仿真器（RISC-V 特权级版本 v1.11）
+- 向下兼容 RISC-V 特权级版本 v1.9
+- 支持 Kendryte K210（含MMU和S模式）
+
+当前项目实现源码等：https://github.com/rustsbi/rustsbi
 
 ### 所属赛道
 
@@ -40,20 +51,9 @@ RustSBI也可以作为一个库使用，帮助更多的SBI开发者适配自己�
 
 中等
 
-### 特征
-
-- 适配 RISC-V SBI 规范 v0.2
-- 对类 Unix 操作系统有很好支持
-- 完全使用 Rust 语言实现
-- 具备 OpenSBI 的大部分功能
-- 支持 QEMU 仿真器（RISC-V 特权级版本 v1.11）
-- 向下兼容 RISC-V 特权级版本 v1.9
-- 支持 Kendryte K210（含MMU和S模式）
-
 ### 文档
 
-- [中文开发博客](https://github.com/luojia65/rcore-os-blog/blob/master/source/_posts/os-report-final-luojia65.md)
-- [中文介绍ppt](https://github.com/luojia65/DailySchedule/blob/master/Rust%E8%AF%AD%E8%A8%80%E4%B8%8ERISC-V%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.pdf)
+所有与RustSBI相关的文档和报告汇总于[slides项目](https://github.com/rustsbi/slides)中。
 
 ### 平台实现的注意事项
 
@@ -69,18 +69,24 @@ RustSBI也可以作为一个库使用，帮助更多的SBI开发者适配自己�
 
 ### 注意：下面的内容是建议内容，不要求必须全部完成。选择本项目的同学也可与导师联系，提出自己的新想法，如导师认可，可加入预期目标
 
+建议选择的开发板（一项即可）：
+* [VisionFive SBC](https://starfivetech.com/site/exploit), 2 * SiFive U74
+* Allwinner D1/D1s boards, 有多个供应商, 1 * T-Head Xuantie C906
+* HiFive Unmatched, 异构多核, 4 * SiFive U74, 1 * SiFive S7
+
 ### 第一题：RustSBI支持
 
-- 挑选RISC-V硬件或模拟器，编写支持embedded-hal的HAL库。您可能需要先获得它的SVD文件，进而使用svd2rust生成对应的PAC库，基于PAC编写HAL库；
+- 挑选RISC-V硬件或模拟器，调查它具有哪些对RustSBI实现有帮助的外设。
 - 选择可用的Rust语言运行时。您可以从开源实现（如riscv-rt）中选择，也可以自己编写简单的运行时；
-- 基于RustSBI、HAL库和运行时，编写代码，使RustSBI支持挑选的RISC-V硬件或硬件模拟器。至少需要能运行rCore-Tutorial项目的操作系统内核。
+- 使用RustSBI、HAL库和运行时，编写代码，使RustSBI支持挑选的RISC-V硬件或硬件模拟器。至少需要能运行rCore-Tutorial项目的操作系统内核。
 
-### 第二题：RTIC运行时
+### 第二题：引导程序环境
 
 - 挑选RISC-V硬件或模拟器。对它包含的中断处理器（如CLINT、PLIC等），阅读文档或逆向分析，了解此中断处理器的使用方法；
-- 对这款中断处理器，设计通用的库，支持优先级中断功能，以作为riscv库的补充。您可能需要参考cortex-m库的NVIC结构体（[这里](https://docs.rs/cortex-m/0.7.0/cortex_m/peripheral/struct.NVIC.html)）；
-- RTIC是一个中断驱动的并发运行时。阅读RTIC的文档（[这里](http://rtic.rs/)），了解RTIC的设计和功能；
-- RTIC目前支持Cortex-M架构；使用您的中断处理器库，尝试编写代码，使RTIC支持RISC-V架构和所挑选芯片包含的中断处理器。
+- Oreboot是一个引导程序框架。阅读Oreboot的文档，了解它的功能；
+- 分支Oreboot项目，为它增加一个平台实现，即您想要移植的开发板。
+
+如果目标开发板具有闪存，建议将引导程序烧录到闪存中，然后由闪存启动系统。否则，可以使用SD卡分区的形式安装引导程序。
 
 ### 第三题：复杂的SBI实现
 
